@@ -1,0 +1,11 @@
+<div>
+    <mat-list role="list">
+        <mat-list-item *ngFor="let generator of generators" role="listitem" (click)="click(generator)"
+            class="list-item">
+
+            <mat-icon mat-list-icon>table_chart</mat-icon>
+            <div mat-line>{{generator.name}}</div>
+        </mat-list-item>
+    </mat-list>
+
+</div>

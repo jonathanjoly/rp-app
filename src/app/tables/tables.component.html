@@ -1,0 +1,18 @@
+<div class="app-page">
+
+    <div class="page-header">
+        <h1>Tables</h1>
+        <span class="page-header-action">
+            <button mat-raised-button color="accent" routerLink="/table">
+                <mat-icon>
+                    add
+                </mat-icon>
+                Créer une tables
+            </button>
+        </span>
+    </div>
+
+    <app-table-list [tables]="tables" (selected)="onSelected($event)">
+    </app-table-list>
+
+</div>

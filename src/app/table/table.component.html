@@ -1,0 +1,66 @@
+<div *ngIf="table" class="app-page">
+
+
+    <div class="page-header">
+        <h1><input matInput [(ngModel)]="table.name" placeholder="Nom de la table"></h1>
+        <span class="page-header-action" *ngIf="table.id">
+            <button mat-raised-button color="accent" (click)="newTable()">
+                <mat-icon>
+                    add
+                </mat-icon>
+                Créer une tables
+            </button>
+        </span>
+    </div>
+
+
+    <div class="form-group" hidden>
+        <div class="form-field">
+            <mat-form-field appearance="standard" class="long-input">
+                <input matInput>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="sub-header">
+        <h2 class="font-title">
+            Les entrées
+        </h2>
+        <span class="flex-right">
+            <button mat-button (click)="addTable()">Ajouter une entrée</button>
+        </span>
+    </div>
+
+    <div class="lines">
+        <div *ngFor="let entry of table.entries; let isFirst = first; let isLast = last; let index = index"
+            class="flex">
+            <mat-form-field appearance="fill">
+                <mat-label>Valeur de départ</mat-label>
+                <input matInput [(ngModel)]="entry.range.start" type="number">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Valeur de fin</mat-label>
+                <input matInput [(ngModel)]="entry.range.end" type="number">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Valeur de l'entée</mat-label>
+                <input matInput [(ngModel)]="entry.value" type="text">
+            </mat-form-field>
+            <span class="flex-right">
+                <button mat-icon-button (click)="remove(index)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="app-bottom__action">
+        <button mat-raised-button color="primary" (click)="save()">
+            <mat-icon>
+                save
+            </mat-icon>
+            Sauvegarder
+        </button>
+    </div>
+
+</div>

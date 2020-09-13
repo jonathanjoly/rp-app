@@ -1,0 +1,44 @@
+.app-page {
+    padding: 24px;
+  }
+
+  .page-header {
+    display: flex; 
+    border-bottom: 1px solid #CCC;
+    margin-bottom: 20px;
+  }
+
+  .page-header-action {
+      margin-left: auto;
+  }
+  .page-header-action button{
+      margin-left: 5px;
+  }
+
+  .sub-header {
+    display: flex; 
+    border-bottom: 1px solid #CCC;
+  }
+
+
+  .form-group {
+    padding: 10px 0 0 150px;
+
+  }
+  .form-field {
+      padding: 0 0 0 16px;
+  }
+  .long-input {
+      width: 100%;
+  }
+
+  .list-item:hover {
+    background-color: #CCC;
+    cursor: pointer;
+  }
+
+  .app-bottom__action {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+  }

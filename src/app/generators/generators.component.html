@@ -1,0 +1,17 @@
+<div class="app-page">
+
+    <div class="page-header">
+        <h1>Générateurs</h1>
+        <span class="page-header-action">
+            <button mat-raised-button color="accent" routerLink="/generator">
+                <mat-icon>
+                    add
+                </mat-icon>
+                Créer un générateur
+            </button>
+        </span>
+    </div>
+
+    <app-generator-list [generators]="generators" (selected)="onSelected($event)"></app-generator-list>
+
+</div>

@@ -1,0 +1,49 @@
+<div class="app-page" *ngIf="generator">
+
+    <div class="page-header">
+        <h1>{{generator.name}}</h1>
+        <span class="page-header-action">
+            <button mat-raised-button routerLink="/generator/{{generator.id}}">
+                <mat-icon>
+                    create
+                </mat-icon>
+                Editer
+            </button>
+            <button mat-raised-button color="accent" (click)="generate()">
+                <mat-icon>
+                    refresh
+                </mat-icon>
+                Relancer
+            </button>
+        </span>
+    </div>
+
+    <div class="table-container">
+
+        <table mat-table [dataSource]="generator.tables" class="mat-elevation-z8">
+
+
+            <ng-container matColumnDef="table">
+                <th mat-header-cell *matHeaderCellDef> Table </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="dice">
+                <th mat-header-cell *matHeaderCellDef> Jet de dé </th>
+                <td mat-cell *matCellDef="let element"> {{element.dice}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="value">
+                <th mat-header-cell *matHeaderCellDef> Valeur </th>
+                <td mat-cell *matCellDef="let element"> {{element.resultat}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+
+    </div>
+</div>
