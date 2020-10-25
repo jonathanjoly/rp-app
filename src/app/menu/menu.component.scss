@@ -29,11 +29,13 @@
         display: flex;
         justify-content: space-around;
         margin: 50px;
+        flex-wrap: wrap;
     }
 
     .menu-card {
         width: 400px;
         padding: 50px;
+        margin: 20px;
         border: solid 1px #CCC;
         background-color: #F1F1F1;
         cursor: pointer;
