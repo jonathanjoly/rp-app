@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import axios from "axios";
 import { GeneratorResult, Generator } from "../generator.type";
 import { generate } from "./formater";
+import {GeneratorsService} from "../generators.service";
 
 @Component({
   selector: "app-generate",
@@ -12,6 +12,7 @@ import { generate } from "./formater";
 export class GenerateComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
+    private api: GeneratorsService
   ) {}
 
   rawData: Generator;
@@ -20,17 +21,15 @@ export class GenerateComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     const id = this.route.snapshot.paramMap.get("id");
-    const result = await axios.get("http://localhost:4000/generators/" + id);
-    this.rawData = result.data;
-    this.generate();
+    
+    this.api.getGenerator(id).subscribe((generator)=> {
+      this.rawData = generator;
+      this.generate();
+    });
+    
   }
 
   generate(): void {
     this.generator = generate(this.rawData);
   }
-
-  /*refreshTable(element): void {
-    const index = getIndexFromGenerator(this.rawData ,element);
-    this.generator.tables[index] = generateTable(this.rawData.tables[index]);    
-  }*/
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import axios from "axios";
+import { GeneratorsService } from '../generators.service';
 
 @Component({
   selector: "app-generators",
@@ -8,13 +8,16 @@ import axios from "axios";
   styleUrls: ["./generators.component.scss", "../page.scss"],
 })
 export class GeneratorsComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+    private api: GeneratorsService) {}
 
   generators = [];
 
-  async ngOnInit(): Promise<void> {
-    const res = await axios.get("http://localhost:4000/generators");
-    this.generators = res.data;
+
+  async ngOnInit(): Promise<void> { 
+    this.api.getGenerators().subscribe((generator)=> {
+      this.generators = generator;
+    });
   }
 
   onSelected(item) {

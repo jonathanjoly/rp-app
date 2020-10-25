@@ -11,6 +11,7 @@ import {
 import { SnackBarErrorComponent } from "../snack-bar-error/snack-bar-error.component";
 import { MatDialog } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { GeneratorsService } from '../generators.service';
 
 @Component({
   selector: "app-generator",
@@ -23,6 +24,7 @@ export class GeneratorComponent implements OnInit {
     private location: Location,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
+    private api: GeneratorsService
   ) {}
 
   generator: Generator;
@@ -33,10 +35,12 @@ export class GeneratorComponent implements OnInit {
     if (!id) {
       this.generator = createNewGenerator();
       return;
-    }
+    } 
 
-    const result = await axios.get("http://localhost:4000/generators/" + id);
-    this.generator = result.data;
+    this.api.getGenerator(id).subscribe((generator)=> {
+      this.generator = generator;
+    });
+
   }
 
   goDown(index: number): void {
@@ -60,41 +64,25 @@ export class GeneratorComponent implements OnInit {
     });
   }
 
-  async save(): Promise<void> {
+  save(): void {
     if (this.generator.id) {
-      return this.put();
-    }
-    return this.post();
-  }
-
-  async put(): Promise<void> {
-    const result = await axios.put(
-      "http://localhost:4000/generators",
-      {
-        id: this.generator.id,
-        name: this.generator.name,
-        tables: tablesToIdArray(this.generator.tables),
-      },
-    );
-    if (result.status === 200) {
-      this.saved();
+      this.api.putGenerator(this.createRecord()).subscribe(res => this.manageSaveResult(res));
       return;
     }
-    this.error();
+    this.generator.id = createId(this.generator.name);
+    this.api.postGenerator(this.createRecord()).subscribe(res => this.manageSaveResult(res));
   }
 
-  async post(): Promise<void> {
-    this.generator.id = createId(this.generator.name);
-    const result = await axios.post(
-      "http://localhost:4000/generators",
-      {
-        id: this.generator.id,
-        name: this.generator.name,
-        tables: tablesToIdArray(this.generator.tables),
-      },
-    );
+  createRecord() {
+    return {
+      id: this.generator.id,
+      name: this.generator.name,
+      tables: tablesToIdArray(this.generator.tables),
+    }
+  }
 
-    if (result.status === 200) {
+  manageSaveResult(result) {
+    if (result.ok) {
       this.saved();
       this.location.go("generator/" + this.generator.id);
       return;

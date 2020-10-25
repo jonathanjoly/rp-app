@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { MatDialogRef } from "@angular/material/dialog";
-import { Router } from "@angular/router";
 import axios from "axios";
+import { GeneratorsService } from '../generators.service';
 
 @Component({
   selector: "app-generator-dialog",
@@ -11,13 +11,15 @@ import axios from "axios";
 export class GeneratorDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<GeneratorDialogComponent>,
+    private api: GeneratorsService
   ) {}
 
-  tables = [];
+  tables = []; 
 
-  async ngOnInit(): Promise<void> {
-    const res = await axios.get("http://localhost:4000/tables");
-    this.tables = res.data;
+  async ngOnInit(): Promise<void> { 
+    this.api.getGenerators().subscribe((generator)=> {
+      this.tables = generator;
+    });
   }
 
   onSelected(item) {

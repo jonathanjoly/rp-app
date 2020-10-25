@@ -16,6 +16,7 @@ import { TableListComponent } from './table-list/table-list.component';
 import { SnackBarSaveComponent } from './snack-bar-save/snack-bar-save.component';
 import { SnackBarErrorComponent } from './snack-bar-error/snack-bar-error.component';
 import { TableComponent } from './table/table.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { TableComponent } from './table/table.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

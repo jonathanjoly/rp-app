@@ -4,7 +4,7 @@ import { Table } from "../generator.type";
 @Component({
   selector: "app-table-list",
   templateUrl: "./table-list.component.html",
-  styleUrls: ["./table-list.component.sass", "../page.scss"],
+  styleUrls: ["./table-list.component.scss", "../page.scss"],
 })
 export class TableListComponent implements OnInit {
   constructor() {}

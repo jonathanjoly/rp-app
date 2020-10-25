@@ -7,7 +7,7 @@
     "license": "ISC",
     "scripts": {
         "start:server": "nodemon server-src/server.js",
-        "start:app": "ng serve"
+        "start:app": "ng serve --open"
     },
     "dependencies": {
         "cors": "^2.8.5",
