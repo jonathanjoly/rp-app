@@ -1,19 +1,36 @@
+@import 'color';
+
 .app-page {
-    padding: 24px;
-  }
+padding: 24px;
+}
 
-  .page-header {
-    display: flex; 
-    border-bottom: 1px solid #CCC;
-    margin-bottom: 20px;
-  }
+.app-page__header {
+display: flex; 
+border-bottom: 1px solid #CCC;
+margin-bottom: 20px;
+}
 
-  .page-header-action {
-      margin-left: auto;
-  }
-  .page-header-action button{
-      margin-left: 5px;
-  }
+.app-page__header__action {
+margin-left: auto;
+}
+.app-page__header__action button{
+margin-left: 5px;
+}
+
+
+
+
+.app-page__list__line {
+  display: flex;
+  align-items: center;
+}
+
+.app-page__list__line__options {
+  margin-left: auto;
+}
+
+
+
 
   .sub-header {
     display: flex; 

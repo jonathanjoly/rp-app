@@ -31,7 +31,7 @@ export class TableComponent implements OnInit {
       this.table = createNewTable();
       return;
     }
-
+  
     const result = await axios.get("http://localhost:4000/tables/" + id);
     this.table = result.data;
     this.table.entries = this.table.entries.sort((entryA, entryB) =>

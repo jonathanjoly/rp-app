@@ -1,0 +1,54 @@
+@import '../color.scss';
+
+.home-component {
+
+    .home-component__header {
+        padding: 50px;
+    }
+
+    .home-component__title__img {
+        margin: auto;
+        width: 300px;
+        height: 300px;
+        display: block;
+        border-radius: 50%;
+        box-shadow: $shadow;  
+    }
+
+    .home-component__title {
+        padding: 50px;
+        color: $primary;
+        font-size: 50px;
+        text-align: center;
+        border-bottom: solid 5px $primary;
+    }
+
+    .home-component__cards {
+        display: flex;
+        justify-content: space-around;
+        margin: 50px;
+        flex-wrap: wrap;
+    }
+    
+    .home-component__card {
+        width: 400px;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 4px;
+        background-color: $primary;
+        cursor: pointer;
+        color: #FFF;
+        box-shadow: $shadow;
+    }
+
+    .home-component__card__icon {
+        font-size: 50px;
+        width: 50px;
+        margin-left: 175px;
+        color: #FFF;
+    }
+    .home-component__card__title {
+        text-align: center;
+        color: #FFF;
+    }
+}

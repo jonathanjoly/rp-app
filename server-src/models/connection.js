@@ -1,5 +1,4 @@
 const MongoClient = require("mongodb").MongoClient;
-const LD = require("lodash");
 
 function dbAction(action) {
   MongoClient.connect(process.env.CONNECTION_STRING, function (err, db) {

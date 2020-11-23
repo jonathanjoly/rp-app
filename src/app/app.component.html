@@ -1,13 +1,12 @@
 <div class="app">
-
-
-  <mat-toolbar color="primary">
-    <span routerLink="/menu">RP APP</span>
-  </mat-toolbar>
-
-
-  <div class="app-container">
-    <router-outlet></router-outlet>
-  </div>
-
+  <mat-drawer-container class="app__container">
+    <mat-drawer mode="side" opened>
+      <app-menu></app-menu>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div class="app__content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
 </div>

@@ -1,10 +1,10 @@
-const Db = require("../connection");
+const Db = require("./connection");
 
 const GENERATORS = "generators";
 
 function getGenerators() {
   return Db.getAll(GENERATORS);
-}
+} 
 
 function getGenerator(generatorId) {
   return Db.get(GENERATORS, generatorId);

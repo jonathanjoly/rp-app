@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {Observable, of } from 'rxjs';
 import {Generator, Table } from "./generator.type";
 import { isGeneratedFile } from '@angular/compiler/src/aot/util';
-
+ 
 @Injectable({
   providedIn: 'root'
 })

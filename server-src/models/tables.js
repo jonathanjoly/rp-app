@@ -1,4 +1,4 @@
-const Db = require("../connection");
+const Db = require("./connection");
 
 const TABLES = "tables";
 

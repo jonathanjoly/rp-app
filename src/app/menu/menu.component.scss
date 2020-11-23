@@ -1,52 +1,28 @@
+@import '../color.scss';
+
 .menu-component {
-    
-    .menu-title {
-        padding: 50px;
-    }
+    background-color: $primary-darker;
+    border-right: 1px solid $primary;
+    color: #FFF;
+    height: 100%;
+    min-width: 200px;
 
-    .menu-title h1{
-        padding: 50px;
-        color: #3f51b5;
-        font-size: 50px;
+    .menu-component__brand {
+        font-size: 32px;
+        padding: 32px 16px;
         text-align: center;
-        border-bottom: solid 5px #3f51b5;
     }
 
-
-    .menu-title img{
-        margin: auto;
-        width: 900px;
-        display: block;
+    .menu-component__list {
+        padding: 0;
     }
 
-    .big-icon{
-        font-size: 50px;
-        width: 50px;
-        margin-left: 175px;
-        color: #3f51b5;
-    }
-    .menu-cards{
-        display: flex;
-        justify-content: space-around;
-        margin: 50px;
-        flex-wrap: wrap;
+    .menu-component__list__item {
+        color: #fff;
     }
 
-    .menu-card {
-        width: 400px;
-        padding: 50px;
-        margin: 20px;
-        border: solid 1px #CCC;
-        background-color: #F1F1F1;
+    .menu-component__list__item:hover {
+        background-color: $primary;
         cursor: pointer;
     }
-
-    h3 {
-        text-align: center;
-        color: #3f51b5;
-        
-    }
 }
-
-
-

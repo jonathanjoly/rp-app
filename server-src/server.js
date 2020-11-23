@@ -3,9 +3,9 @@ const bodyParser = require("body-parser");
 
 const express = require("express");
 const app = express();
-const diceRouter = require("./controllers/dice");
-const generatorsRouter = require("./controllers/generators");
-const tablesRouter = require("./controllers/tables");
+const diceRouter = require("./api/dices");
+const generatorsRouter = require("./api/generators");
+const tablesRouter = require("./api/tables");
 const dotenv = require("dotenv");
 const cors = require("cors");
 

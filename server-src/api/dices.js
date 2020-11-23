@@ -1,10 +1,10 @@
 const express = require("express");
-const Dice = require("../models/dice");
+const DicesService = require("../services/dices");
 const router = express.Router();
 
 router.get("/:dice", function (req, res) {
   res.send({
-    dices: Dice.launchDices(req.params.dice),
+    dices: DicesService.launchDices(req.params.dice),
   });
 });
 

@@ -1,9 +1,9 @@
 <div *ngIf="generator" class="app-page">
 
 
-    <div class="page-header">
+    <div class="app-page__header">
         <h1><input matInput [(ngModel)]="generator.name" placeholder="Nom du générateur"></h1>
-        <span class="page-header-action">
+        <span class="app-page__header__action">
             <button mat-raised-button color="accent" routerLink="/generate/{{generator.id}}">
                 <mat-icon>
                     loop
@@ -20,38 +20,40 @@
             </mat-form-field>
         </div>
     </div>
+    <div>
+        <div class="sub-header">
+            <h2 class="font-title">
+                Les tables
+            </h2>
+            <span class="flex-right">
+                <button mat-button (click)="addTable()">Ajouter une table</button>
+            </span>
+        </div>
 
-    <div class="sub-header">
-        <h2 class="font-title">
-            Les tables
-        </h2>
-        <span class="flex-right">
-            <button mat-button (click)="addTable()">Ajouter une table</button>
-        </span>
+        <mat-list *ngIf="generator.tables">
+            <mat-list-item
+                *ngFor="let table of generator.tables; let isFirst = first; let isLast = last; let index = index">
+
+                <div mat-line>
+                    <div class="flex">
+                        <span>{{table.name}}</span>
+                        <span class="flex-right">
+                            <button mat-icon-button *ngIf="!isFirst" (click)="goUp(index)">
+                                <mat-icon>north</mat-icon>
+                            </button>
+                            <button mat-icon-button *ngIf="!isLast" (click)="goDown(index)">
+                                <mat-icon>south</mat-icon>
+                            </button>
+                            <button mat-icon-button (click)="remove(index)">
+                                <mat-icon>east</mat-icon>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </mat-list-item>
+        </mat-list>
     </div>
 
-    <mat-list *ngIf="generator.tables">
-        <mat-list-item
-            *ngFor="let table of generator.tables; let isFirst = first; let isLast = last; let index = index">
-
-            <div mat-line>
-                <div class="flex">
-                    <span>{{table.name}}</span>
-                    <span class="flex-right">
-                        <button mat-icon-button *ngIf="!isFirst" (click)="goUp(index)">
-                            <mat-icon>north</mat-icon>
-                        </button>
-                        <button mat-icon-button *ngIf="!isLast" (click)="goDown(index)">
-                            <mat-icon>south</mat-icon>
-                        </button>
-                        <button mat-icon-button (click)="remove(index)">
-                            <mat-icon>east</mat-icon>
-                        </button>
-                    </span>
-                </div>
-            </div>
-        </mat-list-item>
-    </mat-list>
 
     <div class="app-bottom__action">
         <button mat-raised-button color="primary" (click)="save()">

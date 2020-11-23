@@ -1,20 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const GeneratorDao = require("../dao/generators");
-const TablesDao = require("../dao/tables");
+const TablesService = require("../services/generators/tables");
 
-router.get("/", async function (req, res) {
-  const tables = await TablesDao.getTables();
+router.get("/", async function (_, res) {
+  const tables = await TablesService.getTables();
   res.send(tables);
 });
 
 router.get("/:table", async function (req, res) {
-  const table = await TablesDao.getTable(req.params.table);
+  const table = await TablesService.getTable(req.params.table);
   res.send(table);
 });
 
 router.put("/", async function (req, res) {
-  const up = await TablesDao.updateTable(
+  const up = await TablesService.updateTable(
     req.body.id,
     { name: req.body.name, entries: req.body.entries },
   );
@@ -23,7 +22,7 @@ router.put("/", async function (req, res) {
 });
 
 router.post("/", async function (req, res) {
-  const newRecord = await TablesDao.insertTable(req.body);
+  const newRecord = await TablesService.insertTable(req.body);
   res.send(newRecord);
 });
 

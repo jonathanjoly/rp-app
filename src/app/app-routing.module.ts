@@ -5,7 +5,7 @@ import { GeneratorsComponent } from "./generators/generators.component";
 import { GenerateComponent } from "./generate/generate.component";
 import { TablesComponent } from "./tables/tables.component";
 import { TableComponent } from "./table/table.component";
-import { MenuComponent } from "./menu/menu.component";
+import { HomeComponent } from "./home/home.component";
 
 const routes: Routes = [
   { path: "generators", component: GeneratorsComponent },
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: "tables", component: TablesComponent },
   { path: "table", component: TableComponent },
   { path: "table/:id", component: TableComponent },
-  { path: "home", component: MenuComponent },
+  { path: "home", component: HomeComponent },
   { path: "**", redirectTo: "/home" },
 ];
 

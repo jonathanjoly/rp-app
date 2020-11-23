@@ -1,4 +1,5 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import 'color';
 
 .app {
     font-family: Roboto, Arial, sans-serif;
@@ -7,9 +8,14 @@
     bottom: 0;
     right: 0;
     left: 0;
+
+    .app__container{
+        height: 100%;
+       // background-color: $fouth;
+    }
+    
+    .app__content {     
+        margin: auto;
+    }
+
 }
-.app-container {
-    max-width: 1280px;
-    margin: auto;
-}
-  

@@ -6,7 +6,6 @@ import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MenuComponent } from "./menu/menu.component";
 import { MaterialModule } from "../material-module";
-import { GeneratorListComponent } from "./generator-list/generator-list.component";
 import { GeneratorComponent } from "./generator/generator.component";
 import { GenerateComponent } from "./generate/generate.component";
 import { GeneratorsComponent } from "./generators/generators.component";
@@ -17,12 +16,12 @@ import { SnackBarSaveComponent } from './snack-bar-save/snack-bar-save.component
 import { SnackBarErrorComponent } from './snack-bar-error/snack-bar-error.component';
 import { TableComponent } from './table/table.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    GeneratorListComponent,
     GeneratorComponent,
     GenerateComponent,
     GeneratorsComponent,
@@ -32,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     SnackBarSaveComponent,
     SnackBarErrorComponent,
     TableComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
